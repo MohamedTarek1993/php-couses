@@ -103,7 +103,7 @@ elseif ($num <0) {
 
 $day ="السيت";
 
-switch($day){
+  ($day){
   case 'الأثنين':
     echo "الأثنين" . "<br>";
     break;
