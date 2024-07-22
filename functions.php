@@ -74,3 +74,92 @@ FUNCTION C(){
 C();
 C();
 C();
+
+
+//______________________________
+//1- func_num_args()
+//2- func_num_args(index)
+//3- func_get_arg()
+
+function foo()
+{
+    echo "Number of arguments: ", func_num_args() . "<br/>"; 
+    echo "index 2 is : " , func_num_args(2) . "<br/>"; // return 3
+    foreach (func_get_args() as $arg) {
+     $res =+ $arg; 
+     echo $res . "<br/>"; // return 6
+    }
+   
+}
+
+foo(1, 2, 3);  //  Number of arguments: 3
+
+
+function nums(...$nums)
+{
+    foreach ($nums as $arg) {
+     $res =+ $arg; 
+     echo $res . "<br/>"; // return 6
+    }
+   
+}
+
+nums(1, 2, 3);  //  Number of arguments: 3
+
+//______________________________
+
+// passing argumnt by refrence
+function addthree($num){
+    $num += 3;
+    return $num;
+   
+}
+$n = 15 ;
+$num = addthree($n);
+echo $num . "<br/>"; // return 18
+
+echo $n . "<br/>"; // return 15 only n is not changed to change add & before $num will be 18
+
+//______________________________
+// return type 
+
+function cal($num1 , $num2){
+  
+    return $num1 + $num2;
+   
+}
+
+echo cal(10.3 , 15.4) . "<br/>"; 
+// return 25.7 to convert it to intger we use (int) function cal($num1 , $num2) : int{}
+
+
+//______________________________
+//anonymous function 
+
+$msg = "hello";
+
+$say_hi = function () use ($msg) { // use $msg because $msg is a global variable
+    echo $msg;
+};  
+  
+
+//______________________________
+//array mapping
+
+$nums = [10, 15, 20, 25, 30];
+function addeven($num){
+  return $num * 2;
+}
+
+
+$result = array_map('addeven', $nums);
+echo implode(" " , $result) . "<br/>";
+
+
+// _______________________________
+// Arrow function
+
+$nums = [10, 15, 20, 25, 30];
+
+$result = array_map(fn($num) => $num * 2 , $nums);
+echo implode(" " , $result) . "<br/>";
