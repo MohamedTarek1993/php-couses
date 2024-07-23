@@ -58,7 +58,7 @@ echo substr_count('Hellow Hellow' , 'He' , 1 , 7) . '<br/>' ;  // get sub string
 $trans = [
     'i' => 'انا',
     'love' => 'أحب',
-    'mother' => 'أمك',
+    'mother' => 'امي',
 ];
 $synt = "i love mother" ;
 echo strtr($synt , $trans) . '<br/>' ;
@@ -80,3 +80,5 @@ echo similar_text("Hello World","Hello Peter") . '<br/>'; // 7  compare two stri
 echo similar_text("Hello World","Hello Peter" , $percent) . '<br/>'; // 7  compare two strings and return percent
 echo $percent; //
 
+
+echo strstr("Hello world!","world") . '<br/>'; // get sub string from string
