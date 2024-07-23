@@ -52,3 +52,31 @@ echo stripos($syntax , 'h' , 2) . '<br/>' ; // get index of string not sesnsitiv
 echo strripos($syntax , 'h') . '<br/>' ; // get index of  string from right  not sesnsitive
 
 echo substr_count('Hellow Hellow' , 'He' , 1 , 7) . '<br/>' ;  // get sub string from string
+
+// strtr
+
+$trans = [
+    'i' => 'انا',
+    'love' => 'أحب',
+    'mother' => 'أمك',
+];
+$synt = "i love mother" ;
+echo strtr($synt , $trans) . '<br/>' ;
+
+
+echo str_replace("1", "2", "This is number 1") . '<br/>'; // replace string sesnsitive case output this is number 2
+echo str_ireplace("1", "2", "This is number 1") . '<br/>'; // replace string not sesnsitive
+ 
+
+echo substr_replace("Hello","world",0) . '<br/>'; // 0 will start replacing at the first character in the string
+
+$str = "An example of a long word is: Supercalifragulistic";
+echo wordwrap($str,15,"<br>\n") . '<br/>'; //
+
+echo ord("h")."<br>"; // 104 convert letter to ascii
+
+
+echo similar_text("Hello World","Hello Peter") . '<br/>'; // 7  compare two strings
+echo similar_text("Hello World","Hello Peter" , $percent) . '<br/>'; // 7  compare two strings and return percent
+echo $percent; //
+
