@@ -133,23 +133,31 @@ $resilts =  array_combine($playeFootball , $club) ;  // combine two array first 
 
     <form action="course1.php" method="GET">
         <select name="page">
-    
-    <?php
-        foreach($options as $option){?>
-    <option value="<?php echo $option; ?> <?php if(!empty($_GET['page']) && $_GET['page'] ) echo 'selected'; ?>">
-    <?php echo $option; ?>
-    </option>
-
-    <?php
-        }
-        ?>
-    </select>
-    <input type="submit" value="submit">
+           <option value="">Select Page</option>
+            <?php
+       foreach($options as $option) { ?>
+            <option value="<?php echo $option; ?>"
+                <?php if(!empty($_GET['page']) && $_GET['page'] == $option) echo 'selected'; ?>>
+                <?php echo ucfirst($option); // Display option in proper case ?>
+            </option>
+            <?php } ?>
+        </select>
+        <input type="submit" value="submit">
     </form>
 
-    <?php 
-    echo file_get_contents("pages/{$_GET['page']}.php") ;
-    ?>
+    <?php
+// Define a list of allowed pages for security
+$allowed_pages = ['css', 'html']; // Add your actual pages here
+
+// Check if the requested page is allowed and exists
+if (!empty($_GET['page']) && in_array($_GET['page'], $allowed_pages)) {
+    $page = $_GET['page'];
+    // Safely include the page
+    echo file_get_contents("pages/{$page}.php");
+} else {
+    echo "Please select a valid page.";
+}
+?>
 
     <ul>
         <?php
