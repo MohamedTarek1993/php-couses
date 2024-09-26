@@ -118,6 +118,11 @@ $resilts =  array_combine($playeFootball , $club) ;  // combine two array first 
 
 // $fileContents = file_get_contents('/path/to/file.txt'); // Read the contents of a file
 // echo $fileContents;
+
+
+//________________________
+$price= (int)$price ; // convert string to int
+$name = (string)$name ; // convert int to string 
 ?>
 
 <!DOCTYPE html>
