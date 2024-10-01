@@ -123,6 +123,13 @@ $resilts =  array_combine($playeFootball , $club) ;  // combine two array first 
 //________________________
 $price= (int)$price ; // convert string to int
 $name = (string)$name ; // convert int to string 
+
+
+//  ________________________
+$name = $_GET['name'] ?? '' ; // GET NAME FROM URL AND IF DESONT EXIST SET IT TO EMPTY STRING
+
+$TEXT='Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni tempora veniam ducimus, velit laboriosam obcaecati eos cupiditate beatae est deleniti exercitationem tempore architecto mollitia odit optio omnis dignissimos, ipsa placeat.';
+var_dump(explode(' ',$TEXT)); // explode string to array
 ?>
 
 <!DOCTYPE html>
@@ -138,7 +145,7 @@ $name = (string)$name ; // convert int to string
 
     <form action="course1.php" method="GET">
         <select name="page">
-           <option value="">Select Page</option>
+            <option value="">Select Page</option>
             <?php
        foreach($options as $option) { ?>
             <option value="<?php echo $option; ?>"
@@ -181,6 +188,11 @@ if (!empty($_GET['page']) && in_array($_GET['page'], $allowed_pages)) {
         echo "<li> this Player called {$player} played {$club} </li>" ;
         endforeach ;
         ?>
+    </ul>
+    <ul>
+        <li>
+        <?php echo implode('<li></li> ' , explode(',' , $TEXT)) ?>
+        </li>
     </ul>
 
 </body>
