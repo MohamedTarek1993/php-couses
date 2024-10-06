@@ -163,3 +163,5 @@ $nums = [10, 15, 20, 25, 30];
 
 $result = array_map(fn($num) => $num * 2 , $nums);
 echo implode(" " , $result) . "<br/>";
+
+
