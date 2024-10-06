@@ -9,3 +9,33 @@
 // 4- التعددية  ( Polymorphism )
 // 5- التغليف  ( Encapsulation )
 // 6 - التجريد ( Abstraction )
+
+
+$acountant1=[
+    'name' => 'ali tarek',
+    'balance' => 100000.00,
+    'nr' => '123456789',
+];
+$acountant2=[
+    'name' => 'hassan sayed',
+    'balance' => 250.00,
+    'nr' => '523654789',
+];
+
+function print_palance(array $acountant){
+    echo "Account name is {$acountant['name']} and balance is {$acountant['balance']} , nr #{$acountant['nr']}" . "<br/>";
+}
+
+print_palance($acountant1);
+print_palance($acountant2);
+
+
+function transfer(array &$from , array &$to , float $amount){
+    $from['balance'] -= $amount;
+    $to['balance'] += $amount;
+
+}
+ transfer($acountant1 , $acountant2 , 200.00) ;
+ print_palance($acountant1);
+print_palance($acountant2);
+  
